@@ -1,0 +1,5 @@
+BoldAsFont=no
+Font=Consolas
+FontHeight=11
+Term=xterm-256color
+FontSmoothing=full
