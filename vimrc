@@ -194,6 +194,10 @@ set bs=indent,eol,start
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
 
+" Don't clutter my env, put all vim backup and swp files into single folder
+set backupdir=/home/hmaulana/tmp
+set directory=/home/hmaulana/tmp
+
 " Enable matchit macro
 "runtime macros/matchit.vim    "but now we use vundle to cleanly manage matchit
 
@@ -216,8 +220,17 @@ nnoremap <C-down> <C-w>j
 nnoremap <C-right> <C-w>l
 nnoremap <C-left> <C-w>h
 
-" Quick search using lvimgrep
-map <F4> :lvimgrep /
+" Quick search using lvimgrep. Input pattern is asked, open location-list
+" window, don't jump into 1st match.
+" As of current habit, GetPat() function is not used
+"function! GetPat()
+"  call inputsave()
+"  let mypat = input("Enter pattern: ")
+"  call inputrestore()
+"  return mypat
+"endfunction
+
+map <F4> :exe ':lvimgrep /'.input("Enter pattern: ").'/j%\|lop'<CR>
 
 " set syntax highlight to FLEX trace
 map <F3> :set syn=slog<CR>
