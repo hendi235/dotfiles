@@ -216,6 +216,12 @@ nnoremap <C-down> <C-w>j
 nnoremap <C-right> <C-w>l
 nnoremap <C-left> <C-w>h
 
+" Quick search using lvimgrep
+map <F4> :lvimgrep /
+
+" set syntax highlight to FLEX trace
+map <F3> :set syn=slog<CR>
+
 " Toggle BufferExplorer
 "nmap <leader>b :BufExplorer<CR>
 
@@ -225,11 +231,12 @@ nnoremap <C-left> <C-w>h
 "map <leader>nt :NERDTreeToggle<CR>
 
 " Ack {
-  nmap <leader>a <Esc>:Ack!
+"  nmap <leader>a <Esc>:Ack!
 " }
 
 " Ag {
 " note: Remember to install Ag first and can be found in PATH
+  nmap <Leader>a <Esc>:Ag!
 " }
 
 " ctrlP {
@@ -250,7 +257,7 @@ nnoremap <C-left> <C-w>h
   map <Leader>mbt :MBEToggle<cr>
 
   " swich forward buffer(s) in current window
-  noremap <C-TAB>   :MBEbf<CR>
+  noremap <C-TAB> :MBEbf<CR>
   
   " switch backwad buffer
   noremap <C-S-TAB> :MBEbb<CR>
@@ -258,6 +265,7 @@ nnoremap <C-left> <C-w>h
   " delete current buffer
   nmap <leader>md :MBEbd<CR>
 " }
+
 
 " toggle background mode
 call togglebg#map("<F5>")
