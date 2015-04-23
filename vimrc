@@ -95,6 +95,10 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Execute :F command to clear last search pattern. Useful to turn-off pattern highlight temporarily.
+" [see http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting?rq=1]
+command F let @/=""
+
 " Set global color theme
 "-- zenburn --
 "let g:zenburn_high_Contrast=1
@@ -202,7 +206,7 @@ set directory=/home/hmaulana/tmp
 "runtime macros/matchit.vim    "but now we use vundle to cleanly manage matchit
 
 " =============================== 
-" Remapping key start from here 
+" (Re)mapping key start from here 
 " ===============================
 " Toggle fullscreen mode with plugin gvimfullscreen (http://www.vim.org/scripts/script.php?script_id=2596)
 "nmap <silent> <F3> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
@@ -220,9 +224,16 @@ nnoremap <C-down> <C-w>j
 nnoremap <C-right> <C-w>l
 nnoremap <C-left> <C-w>h
 
+" Go to next item in location-list, rollover when last item is reached.
+" [see http://stackoverflow.com/questions/27198612/vim-location-list-how-to-go-to-first-location-if-at-last-location]
+nnoremap <End> :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
+
+" Temporarily disable search pattern highlight
+nnoremap <silent> <Backspace> :noh<CR>
+
 " Quick search using lvimgrep. Input pattern is asked, open location-list
 " window, don't jump into 1st match.
-" As of current habit, GetPat() function is not used
+" [20150423]: As of current habit, GetPat() function is not used
 "function! GetPat()
 "  call inputsave()
 "  let mypat = input("Enter pattern: ")
