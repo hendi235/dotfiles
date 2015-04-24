@@ -36,6 +36,9 @@ Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
+" Working flawlessly with git
+Plugin 'tpope/vim-fugitive'
+
 " fuzzy file searching
 Plugin 'kien/ctrlp.vim'
 
@@ -43,13 +46,13 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'fholgado/minibufexpl.vim'
 "Plugin 'corntrace/bufexplorer'
 
-" Match coupled tags/parenthesis
+" Enhanced matchit for coupled tags/parenthesis
 Plugin 'jwhitley/vim-matchit'
 
 " Use silver searcher for search (https://github.com/ggreer/the_silver_searcher)
 Plugin 'rking/ag.vim'
 
-" FLEX specific convinience
+" FLEX specific convenience
 Plugin 'hendi235/vim-flex'
 
 filetype plugin on    " required!
