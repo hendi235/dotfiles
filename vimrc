@@ -214,6 +214,9 @@ set directory=/home/hmaulana/tmp
 " change <leader> key to 'comma', easier to reach
 let mapleader = ","
 
+" Use double-tap of quote (') to replace <ESC> in insert mode
+inoremap '' <ESC>
+
 " easy window movement using Ctr + <movementkey>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -224,12 +227,15 @@ nnoremap <C-down> <C-w>j
 nnoremap <C-right> <C-w>l
 nnoremap <C-left> <C-w>h
 
+" Temporarily disable search pattern highlight
+nnoremap <silent> <Backspace> :nohlsearch<CR>
+
 " Go to next item in location-list, rollover when last item is reached.
 " [see http://stackoverflow.com/questions/27198612/vim-location-list-how-to-go-to-first-location-if-at-last-location]
 nnoremap <End> :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
+" Go prev item
+nnoremap <S-End> :try<bar>lprev<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>llast<bar>endtry<cr>
 
-" Temporarily disable search pattern highlight
-nnoremap <silent> <Backspace> :noh<CR>
 
 " Quick search using lvimgrep. Input pattern is asked, open location-list
 " window, don't jump into 1st match.
@@ -241,25 +247,29 @@ nnoremap <silent> <Backspace> :noh<CR>
 "  return mypat
 "endfunction
 
-map <F4> :exe ':lvimgrep /'.input("Enter pattern: ").'/j%\|lop'<CR>
+map <F4> :exe ':lvimgrep /'.input("Enter pattern: ").'/j%\|lopen'<CR>
 
-" set syntax highlight to FLEX trace
-map <F3> :set syn=slog<CR>
 
-" Toggle BufferExplorer
-"nmap <leader>b :BufExplorer<CR>
+" set syntax highlight to FLEX trace. vim-flex plugin is required.
+map <F3> :set syntax=slog<CR>
 
-" Toggle NERD-Tree with F7
-"nmap <F7> :NERDTreeToggle<CR>
-" or use this, but not both!
-"map <leader>nt :NERDTreeToggle<CR>
+" BufferExplorer {
+"  nmap <leader>b :BufExplorer<CR>
+" }
+
+" NERD-Tree {
+"  Toggle NERD-Tree with F7
+"  nmap <F7> :NERDTreeToggle<CR>
+"  or use this, but not both!
+"  map <leader>nt :NERDTreeToggle<CR>
+" }
 
 " Ack {
 "  nmap <leader>a <Esc>:Ack!
 " }
 
 " Ag {
-" note: Remember to install Ag first and can be found in PATH
+" note: Remember to install Ag first and can be found in PATH. Ag.vim plugin is required
   nmap <Leader>a <Esc>:Ag!
 " }
 
