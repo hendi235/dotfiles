@@ -31,13 +31,17 @@ call vundle#rc()
 " let Vundle manage Vundle. required!
 Plugin 'gmarik/vundle'
 
-" My bundles start here
+" Plugin installed {
 " more colorscheme
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
+Plugin 'zaiste/Atom'
 
 " Working flawlessly with git
 Plugin 'tpope/vim-fugitive'
+
+" Saner working with csv file(s) [http://www.vim.org/scripts/script.php?script_id=2830]
+Plugin 'chrisbra/csv.vim'
 
 " fuzzy file searching
 Plugin 'kien/ctrlp.vim'
@@ -52,8 +56,12 @@ Plugin 'jwhitley/vim-matchit'
 " Use silver searcher for search (https://github.com/ggreer/the_silver_searcher)
 Plugin 'rking/ag.vim'
 
+" Blazing fast moving around
+"Plugin Lokaltog/vim-easymotion
+
 " FLEX specific convenience
 Plugin 'hendi235/vim-flex'
+" }
 
 filetype plugin on    " required!
 filetype indent on    " required!
@@ -114,6 +122,10 @@ command F let @/=""
 "-- solarized --
 let g:solarized_contrast="normal"
 colorscheme solarized
+
+" -- Atom --
+colorscheme Atom
+
 
 if has("gui_running")
     " Set global font
