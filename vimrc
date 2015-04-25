@@ -59,6 +59,9 @@ Plugin 'rking/ag.vim'
 " Blazing fast moving around
 "Plugin Lokaltog/vim-easymotion
 
+" Show tag list as sidebar
+"Plugin majutsushi/tagbar
+
 " FLEX specific convenience
 Plugin 'hendi235/vim-flex'
 " }
@@ -220,9 +223,9 @@ set directory=/home/hmaulana/tmp
 " Enable matchit macro
 "runtime macros/matchit.vim    "but now we use vundle to cleanly manage matchit
 
-" =============================== 
-" (Re)mapping key start from here 
-" ===============================
+" ======================================================== 
+" (Re)mapping key start from here, based on DVORAK layout
+" ========================================================
 " Toggle fullscreen mode with plugin gvimfullscreen (http://www.vim.org/scripts/script.php?script_id=2596)
 "nmap <silent> <F3> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
@@ -232,10 +235,17 @@ let mapleader = ","
 " Use double-tap of quote (') to replace <ESC> in insert mode
 inoremap '' <ESC>
 
+" i want to be able to move around quickly using the basic movement key
+nmap J 5j
+nmap K 5k
+
+" because it's easier to reach, replace t. motion key for move right motion
+nmap t l
+
 " easy window movement using Ctr + <movementkey>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-t> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-up> <C-w>k
 nnoremap <C-down> <C-w>j
