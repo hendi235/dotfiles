@@ -62,6 +62,12 @@ Plugin 'rking/ag.vim'
 " Show tag list as sidebar
 "Plugin majutsushi/tagbar
 
+" Use TAB for anything need word completion
+"Plugin ervandew/supertab
+
+" Make one out of two in split window
+"Plugin vim-scripts/ZoomWin
+
 " FLEX specific convenience
 Plugin 'hendi235/vim-flex'
 " }
@@ -100,6 +106,7 @@ endfunction
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
+
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -235,12 +242,16 @@ let mapleader = ","
 " Use double-tap of quote (') to replace <ESC> in insert mode
 inoremap '' <ESC>
 
-" i want to be able to move around quickly using the basic movement key
-nmap J 5j
-nmap K 5k
+" Use pageup/down button for scrolling viewport to minimize RSI
+map <PageUp> <C-y>
+map <PageDown> <C-e>
 
-" because it's easier to reach, replace t. motion key for move right motion
+" replace t. motion key with move right motion, easier to reach
 nmap t l
+
+" i want to be able to move around quickly using the basic movement key
+nmap J 6j
+nmap K 6k
 
 " easy window movement using Ctr + <movementkey>
 nnoremap <C-j> <C-w>j
