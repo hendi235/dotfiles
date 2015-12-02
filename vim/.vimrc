@@ -21,15 +21,15 @@ if has("gui_running")
 " then you've to edit the $HOME in bundle/vundle/autoload/vundle.vim, too.
 " I won't bother, so let it managed by default in .vim folder.
   "set rtp+=%HOME%/.vim/bundle/vundle/
-  set rtp+=$HOME/.vim/bundle/vundle/
+  set rtp+=~/.vim/bundle/Vundle.vim
 else
-  set rtp+=~/.vim/bundle/vundle/
+  set rtp+=~/.vim/bundle/Vundle.vim
 endif
 
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle. required!
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugin installed {
 " more colorscheme
@@ -72,8 +72,9 @@ Plugin 'rking/ag.vim'
 Plugin 'hendi235/vim-flex'
 " }
 
-filetype plugin on    " required!
-filetype indent on    " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 " ----- vundle END -----
 
 
