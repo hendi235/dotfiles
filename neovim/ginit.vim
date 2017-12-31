@@ -1,12 +1,13 @@
 " Vim Plugin installed "{{{
 " ---------------------------------------------------------------------
 call plug#begin('~/Appdata/Local/nvim/addons')
-" ---colorscheme---
+" colorscheme
   "Plug 'altercation/vim-colors-solarized'    " original solarized cannot work in neovim
   Plug 'zaiste/Atom'
   Plug 'frankier/neovim-colors-solarized-truecolor-only'
   Plug 'JulioJu/neovim-qt-colors-solarized-truecolor-only'
-" ---tools---  
+
+" tools  
   Plug 'kien/ctrlp.vim'
   Plug 'jwhitley/vim-matchit'
   "--- my own plugin ---
@@ -14,21 +15,7 @@ call plug#begin('~/Appdata/Local/nvim/addons')
   
 call plug#end()
 " }}}
-" Execute :F command to clear last search pattern. Useful to turn-off pattern highlight temporarily.
-" [see http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting?rq=1]
-command F let @/=""
-
-" Fonts "{{{
-" ---------------------------------------------------------------------
-if has ("gui_running")
-    " Set global font
-    set guifont=Source Code Pro:h11:cDEFAULT
-
-    " try to start GUI in full window size
-    au GUIEnter * simalt ~x
-endif
-" }}}
-" Behavior "{{{
+" BEHAVIOR "{{{
 " ---------------------------------------------------------------------
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
@@ -62,8 +49,9 @@ set expandtab
 set termguicolors
 
 " }}}
-" Nvim default behavior "{{{
+" NVIM_DEFAULT_BEHAVIOR (For info only)r "{{{
 " ---------------------------------------------------------------------
+
 " Syntax highlighting is enabled by default
 "syntax on
 
@@ -98,8 +86,12 @@ set termguicolors
 "viminfo includes !
 "wildmenu is set by default
 " }}}
-" Re-mapping key "{{{
+" KEY_MAPPING "{{{
 " ---------------------------------------------------------------------
+" Execute :F command to clear last search pattern. Useful to turn-off pattern highlight temporarily.
+" [see http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting?rq=1]
+command F let @/=""
+
 " change <leader> key to 'comma', easier to reach in Dvorak
 let mapleader = ","
 
@@ -113,14 +105,21 @@ map <F3> :set syntax=slog<CR>
 " window, don't jump into 1st match.
 map <F4> :exe ':lvimgrep /'.input("Enter pattern: ").'/j%\|lopen'<CR>
 " }}}
-" global colortheme "{{{
+" COLORSCHEME "{{{
 " ---------------------------------------------------------------------
-" -- solarized
+" solarized
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 colorscheme solarized_nvimqt
 
-" -- Atom
-"colorscheme Atom
+" Atom
+"colorscheme atom
+" }}}
+" FONTS_AND_GUI "{{{
+" ---------------------------------------------------------------------
+" Set global font
+  GuiFont Source Code Pro:h11
+  " try to start GUI in full window size
+"call GuiWindowFullScreen(1)
 " }}}
 
